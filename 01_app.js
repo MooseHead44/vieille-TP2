@@ -59,39 +59,31 @@ app.get('/', function (req, res) {res.render('accueil.ejs')});
 
 //////////////////////////////////////////  Route Adresse
 app.get('/adresse', function (req, res) {
-   var cursor = db.collection('adresse')
-                .find().toArray(function(err, resultat){
- if (err) return console.log(err)        
- res.render('adresse.ejs', {adresses: resultat})   
+  var cursor = db.collection('adresse').find().toArray(function(err, resultat) {
+    if (err) return console.log(err)        
+    res.render('adresse.ejs', {adresses: resultat})   
   });
 })
-//////////////////////////////////////////  Route Rechercher
-app.post('/rechercher',  (req, res) => {
 
-})
+//////////////////////////////////////////  Route Rechercher
+app.post('/rechercher',  (req, res) => {})
+
 ////////////////////////////////////////// Route /ajouter
 app.post('/ajouter', (req, res) => {
-console.log('route /ajouter')	
- db.collection('adresse').save(req.body, (err, result) => {
- if (err) return console.log(err)
- // console.log(req.body)	
- console.log('sauvegarder dans la BD')
- res.redirect('/adresse')
- })
+  db.collection('adresse').save(req.body, (err, result) => {
+    if (err) return console.log(err)
+    res.redirect('/adresse');
+  })
 })
 
 ////////////////////////////////////////  Route /modifier
 app.post('/modifier', (req, res) => {
-console.log('route /modifier')
-// console.log('util = ' + util.inspect(req.body));
-req.body._id = 	ObjectID(req.body._id)
- db.collection('adresse').save(req.body, (err, result) => {
-	 if (err) return console.log(err)
-	 console.log('sauvegarder dans la BD')
-	 res.redirect('/adresse')
-	 })
+  req.body._id = 	ObjectID(req.body._id);
+  db.collection('adresse').save(req.body, (err, result) => {
+  	 if (err) return console.log(err)
+  	 res.redirect('/adresse')
+  })
 })
-
 
 ////////////////////////////////////////  Route /detruire
 app.get('/detruire/:id', (req, res) => {
