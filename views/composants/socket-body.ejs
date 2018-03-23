@@ -1,0 +1,56 @@
+<h2>Clavardage</h2>
+<section id="enregistrement">
+    <input type="text">
+    <button onclick="enregistrement()">Enregistrement</button>
+</section>
+
+<section id='chat' style='display:none'>
+    <table id='list_user'></table>
+    <table id='message'></table>
+    <section id='message_a_transmettre'>
+        <input type="text" name="textMessage"><button>Transmettre</button>
+    </section>
+</section>
+
+<script type="text/javascript">
+
+let socket
+window.onload = () => {
+    socket = io()
+    //console.log(socket.id);
+    socket.on('connect', function(){
+        console.log('le socket id =' + socket.id);
+        socket.on('valid_user', function(data){
+            console.log('data en provenance du serveur = ' + data.user)
+            let elmEnregistrement = document.getElementById('enregistrement')
+
+            elmEnregistrement.style.display = 'none'
+            let elmChat = document.getElementById('chat')
+            elmChat.style.display = 'flex'
+        })
+        
+        //////////////////////////////////////////
+        
+        socket.on('diffuser_list_user', function(data){
+            let sChaine = ''
+            for (id in data){
+                sChaine += '<tr>'
+                        + '<td>' + id + '</td>'
+                        + '<td>' + data[id] + '</td>'
+                        + '</tr>'
+                let elmListUser = document.getElementById('list_user')
+                elmListUser.innerHTML = sChaine
+            }
+        })
+    })
+}
+
+/* --------------------------------------------------------- */
+
+function enregistrement(){
+    var elmUser = document.querySelector('#enregistrement input')
+    console.log(elmUser.value)
+    /* l'evenement setUser est transmit avec un objet */
+    socket.emit('setUser', {user : elmUser.value})
+}
+</script>
