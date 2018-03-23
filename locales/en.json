@@ -1,0 +1,24 @@
+{
+	"accueil" : "Homepage",
+	"vider" : "Empty",
+	"adresse" : "Addresses",
+	"langue" : "Français",
+
+	"id" : "_id",
+	"nom" : "Last name",
+	"prenom" : "First name",
+	"telephone" : "Phone",
+	"courriel" : "Email",
+
+	"progV" : "Programming and technology watch",
+	"ctim" : "TIM cmaisonneuve",
+	"CdM" : "College of Maisonneuve",
+	"officiel" : "The official site of Node.js",
+	"fondationN" : "Node.js Foundation",
+	"fondationL" : "Linux Foundation",
+	"sgbd" : "SGBD noSQL mongoDB",
+	"telechargeM" : "Download mongoDB",
+	"npm" : "NPM"
+
+	
+}
