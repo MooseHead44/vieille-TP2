@@ -114,7 +114,6 @@
     let elmAjouter = document.querySelector('.ajouter');
 
         elmAjouter.addEventListener('click', function() {
-            console.log("HELOOOOOOOOOO")
         let elmTr = this.parentElement.parentElement 
         
         xhr = new XMLHttpRequest();
@@ -146,12 +145,13 @@
             console.log(xhr.responseText);
             let elmTr = document.createElement('tr')
             let elmTBody = document.querySelector('.tableau tbody')
+
             let ligne_de_td = '<td >' + response._id + '</td>'
                             + '<td contenteditable="true"></td>'
                             + '<td contenteditable="true"></td>'
                             + '<td contenteditable="true"></td>'
                             + '<td contenteditable="true"></td>'
-                            + '<td><a class="detruire" href="/detruire/<%= elm._id %>"><i class="fas fa-trash-alt" aria-hidden="true"></i></a></td>'
+                            + '<td><a class="detruire" href="/detruire"><i class="fas fa-trash-alt" aria-hidden="true"></i></a></td>'
                             + '<td><a class="modifier" href="#"><i class="far fa-save" aria-hidden="true"></i></a></td>'
             
             elmTr.innerHTML =  ligne_de_td

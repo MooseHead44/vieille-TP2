@@ -1,15 +1,15 @@
-<h2>Clavardage</h2>
+<h2><%= __('chat') %></h2>
     <section id="enregistrement">
 
         <input type="text">
-        <button onclick="enregistrement()">Enregistrement</button>
+        <button onclick="enregistrement()"><%= __('eng') %></button>
 
     </section>
 
 <section id='chat' style='display:none;'>
     <table id='list_user'>
 
-        <tr><th colspan="2">Utilisateurs en ligne</th></tr>
+        <tr><th colspan="2"><%= __('users') %></th></tr>
 
     </table>
 
@@ -23,7 +23,7 @@
 
         <section id="message_a_transmettre">
 
-            <input type="text" name="txtMessage"><button onclick="send()">Transmettre</button>
+            <input type="text" name="txtMessage"><button onclick="send()"><%= __('send') %></button>
             
         </section>
 
@@ -51,28 +51,28 @@ window.onload = () => {
         //////////////////////////////////////////
         
         socket.on('diffuser_list_user', function(data){
-            let sChaine = '<tr><th colspan="2">Utilisateurs en ligne</th></tr>';
+            let sChaine = '<tr><th colspan="2"><%= __('users') %></th></tr>';
             for (id in data) {
                 sChaine += '<tr><td>' + id + '</td><td>' + data[id] + '</td></tr>';
             }
             let elmListUser = document.getElementById('list_user');
             elmListUser.innerHTML = sChaine;
         })
-        socket.on('valid_message', function(data){
-            afficherMessage(data, true);
+        socket.on('valide_message', function(data){
+            affMessage(data, true);
         })
         socket.on('message', function(data){
-            afficherMessage(data, false);
+            affMessage(data, false);
         })
     })
 }
 
 /* --------------------------------------------------------- */
-function afficherMessage(data, user) {
+function affMessage(data, user) {
     let sChaine = '';
 
-    if (!user) {sChaine += '<tr><td>' + data['nom'] + ' : </td><td>' + data['message'] + '</td><td>00:00</td></tr>';} 
-    else {sChaine += '<tr style="background: grey;"><td>Moi : </td><td>' + data['message'] + '</td><td>00:00</td></tr>';}
+    if (!user) {sChaine += '<tr><td>' + data['nom'] + ' : </td><td>' + data['message'];} 
+    else {sChaine += '<tr style="background: grey;"><td>Moi : </td><td>' + data['message'];}
 
     let elmListMessage = document.getElementById('message');
     elmListMessage.innerHTML += sChaine;

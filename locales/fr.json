@@ -8,8 +8,6 @@
 	"prenom": "Prenom",
 	"telephone": "Téléphone",
 	"courriel": "Courriel",
-	"progV": "Programmation et veille technologique",
-	"ctim": "TIM cmaisonneuve",
 	"CdM": "Collège de Maisonneuve",
 	"officiel": "Le site officiel de Node.js",
 	"fondationN": "Fondation Node.js",
@@ -17,5 +15,14 @@
 	"sgbd": "SGBD noSQL mongoDB",
 	"telechargeM": "Télécharger mongoDB",
 	"npm": "NPM",
-	"chat": "chat"
+	"chat": "clavardage",
+	"Ex": "Exercice 9",
+	"cours": "Cours : Programmation et veille technologique",
+	"projet": "Projet utilisant Node.js, Express et MongoDB pour développer une application Web de gestion de membres",
+	"projetV": "Projet Node.js",
+	"progV": "progV",
+	"ctim": "ctim",
+	"users": "Utilisateurs en ligne",
+	"send": "Transmettre",
+	"eng": "Enregistrer"
 }
